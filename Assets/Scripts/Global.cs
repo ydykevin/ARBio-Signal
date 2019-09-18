@@ -12,4 +12,7 @@ public class Global
     public static Vector3 pointerB2 = new Vector3(-0.034f, pointerY, pointerZ);
     public static Vector3 pointerDefault = new Vector3(-0.245f, pointerY, pointerZ);
     public static float sizeModifier = 1f;
+    public static int HR = 60;
+    public static float SCR = 0.5f;
+    public static float scrMax = 0.5f;
 }

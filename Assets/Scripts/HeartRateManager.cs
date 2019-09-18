@@ -19,7 +19,9 @@ public class HeartRateManager : MonoBehaviour
     {
         if (this.GetComponent<SWP_HeartRateMonitor>())
         {
-            hr.text = this.GetComponent<SWP_HeartRateMonitor>().BeatsPerMinute + "";
+            //hr.text = this.GetComponent<SWP_HeartRateMonitor>().BeatsPerMinute + "";
+            hr.text = Global.HR + "";
+            this.GetComponent<SWP_HeartRateMonitor>().BeatsPerMinute = Global.HR;
         }
     }
 

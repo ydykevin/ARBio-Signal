@@ -8,6 +8,8 @@ public class Trackable : MonoBehaviour, ITrackableEventHandler
     public GameObject hrm;
     public GameObject left;
     public GameObject right;
+    //public GameObject HR;
+    //public GameObject SCR;
     private TrackableBehaviour mTrackableBehaviour;
 
     protected virtual void Start()
@@ -38,10 +40,12 @@ public class Trackable : MonoBehaviour, ITrackableEventHandler
     {
         if (mTrackableBehaviour.TrackableName.Equals("Heart"))
         {
+            //HR.AddComponent<Inlet>();
             hrm.GetComponent<SWP_HeartRateMonitor>().enabled = true;
         }
         else if(mTrackableBehaviour.TrackableName.Equals("Sweat"))
         {
+            //SCR.AddComponent<Inlet2>();
             left.SetActive(true);
             right.SetActive(true);
         }

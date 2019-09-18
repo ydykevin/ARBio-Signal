@@ -13,7 +13,7 @@ public class PointerManager : MonoBehaviour
     void Start()
     {
         transform.localPosition = Global.pointerDefault;
-        InvokeRepeating("demoPointer", 0, 3);
+        InvokeRepeating("movePointer", 0, 1);
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class PointerManager : MonoBehaviour
             }
         }
         percentage = (transform.localPosition.x - Global.pointerMin.x) / (Global.pointerMax.x - Global.pointerMin.x);
-        sc.text = percentage.ToString("0.00");
+        sc.text = (percentage/2).ToString("0.00");
     }
 
     public void addMove(Vector3 end, float duration)
@@ -54,10 +54,12 @@ public class PointerManager : MonoBehaviour
         }
     }
 
-    void demoPointer()
+    void movePointer()
     {
-        float endX = Random.Range(Global.pointerMin.x, Global.pointerMax.x);
-        percentage = Mathf.Abs((endX - transform.localPosition.x)) / (Global.pointerMax.x - Global.pointerMin.x) ;
+        //float endX = Random.Range(Global.pointerMin.x, Global.pointerMax.x);
+        float wholeRange = Global.pointerMax.x - Global.pointerMin.x;
+        float endX = (Global.SCR/Global.scrMax)/ wholeRange + Global.pointerMin.x;
+        percentage = Mathf.Abs((endX - transform.localPosition.x)) / wholeRange ;
         move = new Move(transform.localPosition, new Vector3(endX, transform.localPosition.y, transform.localPosition.z), Time.time,percentage*2);
         //Debug.Log("moving to "+endX+" "+ transform.localPosition.y+" "+ transform.localPosition.z);
         //Debug.Log("duration " + percentage * 2);
